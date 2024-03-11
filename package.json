@@ -1,0 +1,27 @@
+{
+  "name": "to-do",
+  "version": "1.0.0",
+  "description": "Simple To-Do app for your tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anewauroraeva/to-do.git"
+  },
+  "author": "anewauroraeva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anewauroraeva/to-do/issues"
+  },
+  "homepage": "https://github.com/anewauroraeva/to-do#readme",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.2"
+  }
+}
