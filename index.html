@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Make your To-do list</title>
+		<link rel="stylesheet" href="./styles.css">
+	</head>
+	<body class="gradient">
+		<div role="page">
+			<div class="main">
+				<h2>To-Do list</h2>
+				<div class="ui-content-items">
+					<div class="input-button">
+						<form class="input">
+							<input type="text" id="input-task" autofocus required autocomplete="off" placeholder="Add your task">
+							<label for="input-task"></label>
+							<button type="submit" class="btn">Add</button>
+						</form>
+					</div>
+					<div class="taskswithresets">
+						<div class="tasks-list">
+							<div class="tasks">
+								<label for="task3">
+									<input type="radio" name="task" value="" id="task3">third task	
+								</label>
+								<label for="task2">
+									<input type="radio" name="task" value="" id="task2">second task	
+								</label>
+								<label for="task1">
+									<input type="radio" name="task" value="" id="task1">first task
+								</label>
+							</div>
+						</div>
+						<div class="resets">
+							<button type="reset3">x</button>
+							<button type="reset2">x</button>
+							<button type="reset1">x</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">footer</div>
+		</div>
+	</body>
+</html>
