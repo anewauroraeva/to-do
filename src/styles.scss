@@ -1,1 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
+
+.gradient-custom-2 {
+  background: linear-gradient(45deg, #4158d0 0%, #c850c0 40%, #ffcc70 90%);
+  /* checkmark icon: #528AFD - blue, #9228F4 - purple */
+}
