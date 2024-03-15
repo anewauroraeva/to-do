@@ -18,8 +18,13 @@ const app = () => {
     console.log('w state');
   });
 
-  const add = document.querySelector('button');
-  console.log(add);
+  const submit = document.querySelector('button');
+  console.log(submit);
+
+  submit.addEventListener('submit', (e) => {
+    e.preventDefault();
+  });
+
   const done = document.querySelector('[title="Done"]');
   console.log(done);
   const remove = document.querySelector('[title="Remove"]');
