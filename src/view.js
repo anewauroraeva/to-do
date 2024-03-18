@@ -3,17 +3,27 @@
 // tbody
 const tableBody = document.querySelector('tbody');
 
-const createTaskPriorityCont = (priority) => {
-  const taskPriorityCont = document.createElement('td');
-  taskPriorityCont.classList.add('align-middle');
-  taskPriorityCont.textContent = priority;
+const createTaskContainer = (name) => {
+  const taskContainer = document.createElement('tr');
+  taskContainer.classList.add('fw-formal');
+
+  const taskName = document.createElement('td'); // +
+  taskName.classList.add('align-middle');
+  taskName.textContent = name;
+};
+
+const createPriority = (priority) => { // works
+  const taskPriority = document.createElement('td');
+  taskPriority.classList.add('align-middle');
   const priorityText = document.createElement('h6');
   priorityText.classList.add('mb-0');
   const priorityBadge = document.createElement('span');
   priorityBadge.classList.add('badge');
+  priorityBadge.textContent = priority;
 
-  taskPriorityCont.append(priorityText);
+  taskPriority.append(priorityText);
   priorityText.append(priorityBadge);
+  // console.log(taskPriorityCont);
 
   switch (priority) {
     case 'Low priority':
@@ -29,8 +39,9 @@ const createTaskPriorityCont = (priority) => {
       break;
   }
 };
+// console.log(createPriorityContainer('Low priority'));
 
-const createDoneRemoveContainer = () => {
+const createDoneRemove = () => {
   const doneRemoveContainer = document.createElement('td');
   doneRemoveContainer.classList.add('align-middle');
   const done = document.createElement('a');
@@ -41,16 +52,14 @@ const createDoneRemoveContainer = () => {
 
   const remove = document.createElement('a');
   remove.setAttribute('href', '#!');
+  done.setAttribute('title', 'Remove');
   remove.dataset.mdbToggle = 'tooltip';
   remove.classList.add('fas', 'fa-trash-alt', 'fa-lg', 'text-warning');
 
   doneRemoveContainer.append(done, remove);
 };
-// tr
-const createTaskContainer = (name, priority) => {
-  const taskContainer = document.createElement('tr');
 
-  const taskName = document.createElement('td'); // +
-  taskName.classList.add('align-middle');
-  taskName.textContent = name;
-};
+/* const render = (watchedState) => {
+}; */
+
+// export default render;
