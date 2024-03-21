@@ -1,9 +1,18 @@
 import onChange from 'on-change';
 import { uniqueId } from 'lodash'; // or just uniqueId?
+// import { string } from 'yup';
 import render from './view.js';
 
 // import i18n from 'i18next';
 // import ru from './locales/index.js';
+
+/* const validate = (str) => {
+  const schema = string()
+    .trim()
+    .max(30)
+    .validateSync(str);
+  return schema;
+}; */
 
 const normalizeTask = (name, priority) => {
   const id = Number(uniqueId());
@@ -11,7 +20,7 @@ const normalizeTask = (name, priority) => {
     name,
     priority,
     id,
-    // visible: true,
+    visible: true,
   };
 };
 
@@ -26,41 +35,46 @@ const app = () => {
       formState: 'idle',
     },
     addedTasks: [], // { name: 'task', priority: 'Medium priority', isDoneOrRemoved: true/false }
+    // activeTasks: [],
   };
 
   const watchedState = onChange(state, () => {
     render(watchedState, form);
   });
 
-  /* const submit = document.querySelector('button');
-  // console.log(submit);
+  const { addedTasks } = watchedState;
+  console.log(addedTasks);
+  const activeTasks = addedTasks.filter((task) => task.visible);
+  console.log(activeTasks);
 
-  submit.addEventListener('submit', (e) => {
-    // e.preventDefault();
-    console.log('target', e.target);
-  }); */
+  const done = document.querySelector('[title="Done"]');
+  console.log(done);
+  const remove = document.querySelector('[title="Remove"]');
+  console.log(remove);
 
-  /* const submit = document.querySelector('.btn');
-  console.log(submit); */
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    // console.log(input.value);
-    // console.log(select.value);
+    // validate(input.value);
     const normTask = normalizeTask(input.value, select.value);
-    // console.log(normTask);
     watchedState.addedTasks.push(normTask);
     console.log(watchedState.addedTasks);
   });
 
-  // const { addedTasks } = watchedState;
-  // const activeTasks = addedTasks.filter((task) => task.visible);
+  console.log('after submit');
 
-  // const done = document.querySelector('[title="Done"]');
-  // console.log(done);
-  // const remove = document.querySelector('[title="Remove"]');
-  // console.log(remove);
+  /* [done, remove].forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log(e.target);
+    });
+  }); */
 
-  // events: submit on add, click on done & remove
+  const test = document.querySelector('.m-4');
+  test.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(e.target);
+  });
+  console.log('after click');
 };
 
 export default app;
